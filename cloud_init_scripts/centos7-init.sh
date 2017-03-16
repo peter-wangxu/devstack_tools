@@ -14,8 +14,16 @@ nameserver 10.245.177.16
 EOF
 
 #resolvconf -u
+yum -y update
 
-yum -y install git vim 
+# enable EPEL repo on CentOS7/RHEL7
+yum install epel-release
+
+yum -y install git vim
+yum -y install python-pip python-devel openssl-devel wget curl
+# install packages for development
+yum groupinstall "Development Tools"
+
 
 chmod +x /etc/ssh/sshd_config
 sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/' /etc/ssh/sshd_config
