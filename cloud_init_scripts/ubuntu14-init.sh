@@ -16,8 +16,13 @@ EOF
 
 resolvconf -u
 
-apt-get -qy install git vim 
+apt-get -qy install git vim python-tox multipath-tools
 apt-get -qy install linux-image-extra-$(uname -r)
+
+# install naviseccli
+wget  -O navicli.deb https://github.com/emc-openstack/naviseccli/raw/master/navicli-linux-64-x86-en-us_7.33.2.0.51-1_all.deb
+dpkg -i navicli.deb
+
 chmod +x /etc/ssh/sshd_config
 sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/' /etc/ssh/sshd_config
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config

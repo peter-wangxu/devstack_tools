@@ -21,6 +21,7 @@ yum install epel-release
 
 yum -y install git vim
 yum -y install python-pip python-devel openssl-devel wget curl
+yum -y install python-tox device-mapper-multipath
 # install packages for development
 yum groupinstall "Development Tools"
 
